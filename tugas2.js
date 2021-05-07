@@ -11,24 +11,20 @@ const getmonth = (callback) => {
 };
 
 function tampilData(error, data) {
-  new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     if (error == null) {
-      resolve(data);
+      const result = data.map((x) => x);
+      resolve(result);
     } else {
       reject(error);
     }
   });
 }
 
-async function process() {
-  try {
-    const result = await getmonth(tampilData);
-    console.log(result);
-  } catch (err) {
+getmonth(tampilData)
+  .then((resolveValue) => {
+    console.log(resolveValue);
+  })
+  .catch((err) => {
     console.log(err);
-  } finally {
-    console.log("proses berakhir");
-  }
-}
-
-process();
+  });

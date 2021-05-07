@@ -14,7 +14,7 @@ const cekHariKerja = (day) => {
   });
 };
 
-cekHariKerja("sabtu")
+cekHariKerja("senin")
   .then((resolveValue) => {
     console.log(resolveValue);
   })
