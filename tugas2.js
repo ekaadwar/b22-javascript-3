@@ -10,21 +10,14 @@ const getmonth = (callback) => {
   }, 4000);
 };
 
-function tampilData(error, data) {
-  return new Promise((resolve, reject) => {
-    if (error == null) {
-      const result = data.map((x) => x);
-      resolve(result);
-    } else {
-      reject(error);
-    }
-  });
+function process(error, data) {
+  try {
+    console.log(data.map((x) => "bulan " + x));
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log("proses selesai");
+  }
 }
 
-getmonth(tampilData)
-  .then((resolveValue) => {
-    console.log(resolveValue);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+getmonth(process);

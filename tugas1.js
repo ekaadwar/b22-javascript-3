@@ -1,7 +1,7 @@
 const cekHariKerja = (day) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const dataDay = ["senin", "selasa", "rabu", "kamis", "jumat"];
+      const dataDay = ["lebaran", "selasa", "rabu", "kamis", "jumat"];
       let cek = dataDay.find((item) => {
         return item === day;
       });
@@ -14,7 +14,7 @@ const cekHariKerja = (day) => {
   });
 };
 
-cekHariKerja("senin")
+cekHariKerja("minggu")
   .then((resolveValue) => {
     console.log(resolveValue);
   })
