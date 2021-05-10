@@ -1,7 +1,7 @@
 const cekHariKerja = (day) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const dataDay = ["lebaran", "selasa", "rabu", "kamis", "jumat"];
+      const dataDay = ["senin", "selasa", "rabu", "kamis", "jumat"];
       let cek = dataDay.find((item) => {
         return item === day;
       });
@@ -14,10 +14,21 @@ const cekHariKerja = (day) => {
   });
 };
 
-cekHariKerja("minggu")
-  .then((resolveValue) => {
-    console.log(resolveValue);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// cekHariKerja("senin")
+//   .then((result) => {
+//     console.log(result);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+async function process(_hari) {
+  try {
+    const hari = await cekHariKerja(_hari);
+    console.log(hari);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+process("lebaran");
